@@ -1,6 +1,6 @@
 # Deploy a People Counter App at the Edge
 
-<img alt="GitHub pull request check state" src="https://img.shields.io/github/status/s/pulls/Sebastian_Rodriguez/https://github.com/HomeBrain-ARG/People_Counter_Intel_OpenVino/1">
+[![](https://img.shields.io/badge/Sebastian-Rodr%C3%ADguez-brightgreen.svg?colorB=00ff00)](https://www.homebrian.com.ar)
 
 | Details            |              |
 |-----------------------|---------------|
