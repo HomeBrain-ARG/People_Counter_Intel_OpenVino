@@ -1,6 +1,6 @@
 # Deploy a People Counter App at the Edge
 
-[![](https://img.shields.io/github/status/s/pulls/Sebastian Rodriguez/https://github.com/HomeBrain-ARG/People_Counter_Intel_OpenVino/1)
+<img alt="GitHub pull request check state" src="https://img.shields.io/github/status/s/pulls/Sebastian_Rodriguez/https://github.com/HomeBrain-ARG/People_Counter_Intel_OpenVino/1">
 
 | Details            |              |
 |-----------------------|---------------|
