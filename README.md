@@ -1,6 +1,6 @@
 # Deploy a People Counter App at the Edge
 
-[![](https://img.shields.io/badge/Sebastian Rodríguez-brightgreen.svg?colorB=00ff00)](https://www.homebrain.com.ar)
+[![](https://img.shields.io/github/status/s/pulls/Sebastian Rodriguez/https://github.com/HomeBrain-ARG/People_Counter_Intel_OpenVino/1)
 
 | Details            |              |
 |-----------------------|---------------|
