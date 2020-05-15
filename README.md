@@ -1,6 +1,7 @@
 # Deploy a People Counter App at the Edge
 
 [![](https://img.shields.io/badge/Sebastian-Rodr%C3%ADguez-brightgreen.svg?colorB=00ff00)](https://www.homebrian.com.ar)
+[![](https://img.shields.io/badge/Python-3.5%2F3.6-blue.svg)]((https://shields.io/))
 
 | Details            |              |
 |-----------------------|---------------|
