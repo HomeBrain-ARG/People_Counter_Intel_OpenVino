@@ -46,33 +46,38 @@ class Network:
         ### TODO: Load the model ###
         model_xml = model
         model_bin = os.path.splitext(model_xml)[0] + ".bin"
+        log.info("Inference - load_model(): Model loaded.")
         # Initialize the plugin.
         self.plugin = IECore()
+        log.info("Inference - load_model(): Initialized plugin.")
 
         ### TODO: Add any necessary extensions ###
         if cpu_extension and "CPU" in device:
             self.plugin.add_extension(cpu_extension, device)
-
+        log.info("Inference - load_model(): Extension added.")
         # Read the IR as a network.
         self.network = IENetwork(model=model_xml, weights=model_bin)
-
+        log.info("Inference - load_model(): IR was read.")
         ### TODO: Check for supported layers ###
         if device == "CPU":
             supported_layers = self.plugin.query_network(self.network, device)
             unsupported_layers = [l for l in self.network.layers.keys() if l not in supported_layers]
             if len(unsupported_layers) != 0:
-                log.error("Inference [ERROR]: Unsupported layers found {}.".format(unsupported_layers))
+                log.error("Inference - load_model() [ERROR]: Unsupported layers found {}.".format(unsupported_layers))
                 sys.exit(1)
 
         # Load the IENetwork into the plugin.
         if num_requests == 0:
             self.exec_network = self.plugin.load_network(self.network, device)
+            log.info("Inference - load_model(): IENetwork loaded and num_requests=0.")
         else:
             self.exec_network = self.plugin.load_network(self.network, device, num_requests=num_requests)
-
+            log.info("Inference - load_model(): IENetwork loaded and num_requests=num_requests.")
         # Get the input and output layers.
         self.input_blob = next(iter(self.network.inputs))
+        log.info("Inference - load_model(): Input blob initialized.")
         self.output_blob = next(iter(self.network.outputs))
+        log.info("Inference - load_model(): Output blob initialized.")
 
         ### TODO: Return the loaded inference plugin ###
         ### Note: You may need to update the function parameters. ###
@@ -83,6 +88,7 @@ class Network:
         Gets the input shape of the network.
         '''
         ### TODO: Return the shape of the input layer ###
+        log.info("Inference - get_input_shape(): executed.")
         return self.network.inputs[self.input_blob].shape
 
     def exec_net(self, image):
@@ -92,6 +98,7 @@ class Network:
         ### TODO: Start an asynchronous request ###
         ### TODO: Return any necessary information ###
         self.exec_network.start_async(request_id=0, inputs={self.input_blob: image})
+        log.info("Inference - exec_net(): executed.")
         return
 
     def wait(self):
@@ -102,6 +109,7 @@ class Network:
         ### TODO: Return any necessary information ###
         ### Note: You may need to update the function parameters. ###
         wait_status = self.exec_network.requests[0].wait(-1)
+        log.info("Inference - wait(): executed.")
         return wait_status
 
     def get_output(self):
@@ -110,4 +118,5 @@ class Network:
         '''
         ### TODO: Extract and return the output results
         ### Note: You may need to update the function parameters. ###
+        log.info("Inference: get_output executed.")        
         return self.exec_network.requests[0].outputs[self.output_blob]

@@ -45,6 +45,8 @@ MQTT_HOST = IPADDRESS
 MQTT_PORT = 3001
 MQTT_KEEPALIVE_INTERVAL = 60
 
+log.basicConfig(filename='log_people_counter.log', level=log.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+
 def build_argparser():
     """
     Parse command line arguments.
@@ -67,6 +69,7 @@ def build_argparser():
     parser.add_argument("-pt", "--prob_threshold", type=float, default=0.5, help=pt_desc)
     parser.add_argument("-c", "--color", type=str, default='BLUE', help=c_desc)
 
+    log.info("Main - build_argparser(): executed.")        
     return parser
 
 def connect_mqtt():
@@ -75,6 +78,7 @@ def connect_mqtt():
     client = mqtt.Client()
     client.connect(MQTT_HOST, MQTT_PORT, MQTT_KEEPALIVE_INTERVAL)
     
+    log.info("Main - connect_mqtt(): executed.")            
     return client
 
 def convert_color(color_string):
@@ -85,8 +89,10 @@ def convert_color(color_string):
     colors = {"BLUE": (255,0,0), "GREEN": (0,255,0), "RED": (0,0,255)}
     out_color = colors.get(color_string)
     if out_color:
+        log.info("Main - convert_color(): user selected color executed.")            
         return out_color
     else:
+        log.info("Main - convert_color(): default color executed.")
         return colors['BLUE']
 
 def draw_boxes(frame, output_network, args, width, height):
@@ -112,6 +118,8 @@ def draw_boxes(frame, output_network, args, width, height):
 
             # When draw the box counts +1 person.
             people_counter += 1
+    
+    log.info("Main - draw_boxes(): executed.")
     return frame, people_counter
 
 def infer_on_stream(args, client):
@@ -147,34 +155,44 @@ def infer_on_stream(args, client):
    # Convert the args for color and probability.
     prob_threshold = float(prob_threshold)
 
+    log.info("Main - infer_on_stream(): initialized variables.")
+
     # Initialise the class
     infer_network = Network()
-
+    log.info("Main - infer_on_stream(): Network class initialized.")
+    
     ### TODO: Load the model through `infer_network` ###
     infer_network.load_model(model, device, GPU_EXTENSION)
     net_input_shape = infer_network.get_input_shape()
+    log.info("Main - infer_on_stream(): model loaded.")
 
     ### TODO: Handle the input stream ###
     # Webcam:
     if args.input == 'CAM':
         input_camvidimg = 0
+        log.info("Main - infer_on_stream(): webcam mode selected.")
     # Image:
     elif args.input.endswith('.jpg') or args.input.endswith('.bmp') :
         single_image_mode = True
         input_camvidimg = args.input
+        log.info("Main - infer_on_stream(): image mode selected.")
     # Video:
     else:
         input_camvidimg = args.input
-        assert os.path.isfile(args.input), "Main [ERROR]: File doesn't exist."
+        log.info("Main - infer_on_stream(): video mode selected.")
+        assert os.path.isfile(args.input), "Main - infer_on_stream [ERROR]: File doesn't exist."
+
     cap = cv2.VideoCapture(input_camvidimg)
     cap.open(input_camvidimg)
+    log.info("Main - infer_on_stream(): CV2 VideoCapture initialized.")
 
-    # Grab the shape of the input 
+    # Grab the shape of the input.
     width = int(cap.get(3))
     height = int(cap.get(4))
 
     ### TODO: Loop until stream is over ###
     while cap.isOpened():
+        log.info("Main - infer_on_stream(): entering in while.")
         ### TODO: Read from the video capture ###
         flag, frame = cap.read()
         if not flag:
@@ -185,12 +203,14 @@ def infer_on_stream(args, client):
         p_frame = cv2.resize(frame, (net_input_shape[3], net_input_shape[2]))
         p_frame = p_frame.transpose((2,0,1))
         p_frame = p_frame.reshape(1, *p_frame.shape)
+        log.info("Main - infer_on_stream(): frame preprocessed.")
 
         ### TODO: Start asynchronous inference for specified request ###
         # Counter to measure inference.
         start_inf_time = time.time()
-        # Perform inference on the frame
+        # Perform inference on the frame.
         infer_network.exec_net(p_frame) 
+        log.info("Main - infer_on_stream(): performing frame inference.")
 
         ### TODO: Wait for the result ###
         if infer_network.wait() == 0:
@@ -199,10 +219,10 @@ def infer_on_stream(args, client):
 
             ### TODO: Get the results of the inference request ###
             output_network = infer_network.get_output()
-
+            log.info("Main - infer_on_stream(): get results using get_output.")
             # Update the frame to include detected bounding boxes.
             frame, people_counter = draw_boxes(frame, output_network, args, width, height)
-
+            log.info("Main - infer_on_stream(): drawing boxes.")
             # Write a message in the frame.
             end_inf_time_msg = "Inference time: {:.2f}ms.".format(end_inf_time * 1000)
 
@@ -214,6 +234,7 @@ def infer_on_stream(args, client):
             thickness   = 1
             cv2.putText(frame, end_inf_time_msg, org, font,  
                         fontScale, color, thickness, cv2.LINE_AA) 
+            log.info("Main - infer_on_stream(): writing inference time.")
 
             ### TODO: Extract any desired stats from the results ###
             ### TODO: Calculate and send relevant information on ###
@@ -249,6 +270,7 @@ def infer_on_stream(args, client):
                 
                 # Software publishes a message through MQTT when it detects at least 5 persons (needs changes in the UI):
                 client.publish("person", json.dumps({"alarms": alarm[0]}))
+            log.info("Main - infer_on_stream(): writing statistics.")
 
             if key_pressed == 27:
                 break
@@ -257,18 +279,22 @@ def infer_on_stream(args, client):
         frame = cv2.resize(frame, (768, 432))
         sys.stdout.buffer.write(frame)
         sys.stdout.flush()
+        log.info("Main - infer_on_stream(): frame sent to FFMPEG server.")        
 
         ### TODO: Write an output image if `single_image_mode` ###
         if single_image_mode == True:
             cv2.imwrite('output_image.jpg', frame)
+        log.info("Main - infer_on_stream(): single_image_mode.")
     ### END OF THE INFERENCE.
-
+    log.info("Main - infer_on_stream(): End of inference.")
+    
     ### Release recurses:
     # Release the capture and destroy any OpenCV windows.
     cap.release()
     cv2.destroyAllWindows()
     # Disconnect from MQTT.
     client.disconnect()
+    log.info("Main - infer_on_stream(): release recurses.")
 
 def main():
     """
@@ -278,10 +304,13 @@ def main():
     """
     # Grab command line args
     args = build_argparser().parse_args()
+    log.info("main(): Build argparser.")
     # Connect to the MQTT server
     client = connect_mqtt()
+    log.info("main(): MQTT connected.")
     # Perform inference on the input stream
     infer_on_stream(args, client)
+    log.info("main(): Performing inference.")    
 
 if __name__ == '__main__':
     main()
