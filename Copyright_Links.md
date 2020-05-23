@@ -1,3 +1,0 @@
-### Copyrighted material consulted:
-
-
