@@ -1,4 +1,4 @@
-### COPYRIGHTED MATERIAL CONSULTED
+### COPYRIGHTED MATERIAL CONSULTED:
 <br/><br/>
 The following material has been consulted to carry out the project belonging to the Intel® Edge AI for IoT Developers Nanodegree Program:
 <br/><br/>
