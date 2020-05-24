@@ -53,7 +53,7 @@ These models were compared to the Intel model, downloaded directly with the scri
 
 ### Models comparison:
 
-### Using GPU Intel Corporation HD Graphics 530:
+#### _Using GPU Intel Corporation HD Graphics 530:_
 Model | Size before conversion [MB] | Size after conversion [MB] | Average inference Speed [ms] | Memory Usage [MB]
 ------|----------------------------|-----------------------------|------------------------------|------------------
 ssd_mobilenet_v1_coco | 59.5 | 27.3 | 37.18 | 266,9
@@ -61,7 +61,7 @@ ssd_resnet50_v1 | 270.2 | 206.9 | 46.35 | 266.4
 ssd_mobilenet_v2_coco | 140.8 | 67.4 | 32.62 | 266.7
 pedestrian-detection-adas-0002 | - | 4.7 | 28.23 | 267.0
 
-### Using CPU Intel Core i7-6700K:
+#### _Using CPU Intel Core i7-6700K:_
 Model | Size before conversion [MB] | Size after conversion [MB] | Average inference Speed [ms] | Memory Usage [MB]
 ------|----------------------------|-----------------------------|------------------------------|------------------
 ssd_mobilenet_v1_coco | 59.5 | 27.3 | 35.63 | 114.3 
@@ -74,18 +74,18 @@ All models have been tested with probability thresholds of: 0.2; 0.3; 0.5; 0.8 a
 It is observed that the most efficient model ends up being the "Pedestrian-detection-adas-0002" embedded within the algorithm that includes the OpenVino v2019.R3 toolkit.
 
 
-## Assess Model Use Cases
+## Assess Model Use Cases:
 
 In my case, because I work in industrial environments, I find it very useful to use this type of tools in personal safety systems, such as: detection of personnel working in areas with movements of systems that move loads (cranes, for instance) on top of them; in this case, the advance of the same towards where the personnel are could be disabled by the automation system, preventing incidents and/or accidents.
 
 
-## Assess Effects on End User Needs
+## Assess Effects on End User Needs:
 
 In vision systems in industrial environments, the lighting issue is very complex. In general, it's sought to install light reflectors where video cameras are installed, this in order to avoid errors due to adverse environmental conditions.
 
 With reference to the accuracy of the models, I consider that to detect people, the examples within the OpenVino toolkit are sufficient, in industrial environments the existing models are generally scarce. This is why you have to think about training models from the beginning of a project and then use them with OpenVino.
 
-## Model Research
+## Model Research:
 
 [This heading is only required if a suitable model was not found after trying out at least three
 different models. However, you may also use this heading to detail how you converted 
@@ -93,11 +93,11 @@ a successful model.]
 
 In investigating potential people counter models, I tried each of the following three models:
 
-- Model 1: [Name]
-  - [Model Source]
-  - I converted the model to an Intermediate Representation with the following arguments...
-  - The model was insufficient for the app because...
-  - I tried to improve the model for the app by...
+- Model 1: ssd_mobilenet_v1_coco 
+  - http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2018_01_28.tar.gz
+  - I converted the model to an Intermediate Representation with the following arguments: "python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json".
+  - The model was insufficient for the application because the precision is not correct, it does not continually detect people.
+  - I tried to improve the model for the app by modifying the probability thresholds.
   
 - Model 2: [Name]
   - [Model Source]
