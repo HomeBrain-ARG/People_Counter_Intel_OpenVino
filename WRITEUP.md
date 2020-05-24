@@ -4,6 +4,8 @@ You can use this document as a template for providing your project write-up. How
 have a different format you prefer, feel free to use it as long as you answer all required
 questions.
 
+Para desarrollar el presente proyecto se realizaron pruebas con tres modelos pre-entrenados de TensorFlow y se compararon los resultados obtenidos con los mismos contra un modelo pre-entrenado de Intel®. Como resumen se puede decir que se obtuvieron resultados mucho mejores con el modelo pre-entrenado de Intel®, probándose en CPU, GPU y Intel® Movidius™ NCS. 
+
 ## Explaining Custom Layers
 
 The process behind converting custom layers involves...
