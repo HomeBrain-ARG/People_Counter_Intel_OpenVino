@@ -12,6 +12,11 @@ En nuestro proyecto se han utilizado modelos pre-entrenados de TensorFlow, segú
 
 In our project, pre-trained TensorFlow models have been used, as we have observed, the more complex the chosen models have been, the more custom layers we have found.
 
+Debido a la complejidad del proceso, he 
+seguido minuciosamente los pasos indicados en la documentación de OpenVino v2019.R3: 
+
+https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Offloading_Sub_Graph_Inference.html
+
 The process behind converting custom layers involves...
 
 Some of the potential reasons for handling custom layers are...
