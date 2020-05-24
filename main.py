@@ -163,7 +163,7 @@ def infer_on_stream(args, client):
     log.info("Main - infer_on_stream(): Network class initialized.")
     
     ### TODO: Load the model through `infer_network` ###
-    infer_network.load_model(model, device, GPU_EXTENSION)
+    infer_network.load_model(model, device, CPU_EXTENSION)
     net_input_shape = infer_network.get_input_shape()
     log.info("Main - infer_on_stream(): model loaded.")
 
