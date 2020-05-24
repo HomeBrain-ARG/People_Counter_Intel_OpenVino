@@ -42,7 +42,14 @@ Los seleccionados para realizar las pruebas fueron los siguientes:
 
 Estos modelos se compararon con el modelo de Intel:
 
-4) pedestrian-detection-adas-0002: Descargado directamente con el script \deployment_tools\tools\model_downloader\downloader.py
+4) pedestrian-detection-adas-0002: Descargado directamente con el script \deployment_tools\tools\model_downloader\downloader.py.
+        - https://docs.openvinotoolkit.org/latest/_models_intel_pedestrian_detection_adas_0002_description_pedestrian_detection_adas_0002.html
+
+
+
+
+
+
 
 My method(s) to compare models before and after conversion to Intermediate Representations
 were...
