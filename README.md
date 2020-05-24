@@ -1,5 +1,5 @@
 # Intel® Edge AI for IoT Developers Nanodegree Program
-# Project 1 - Deploy a People Counter App at the Edge
+# Project N°1 - Deploy a People Counter App at the Edge
 
 [![](https://img.shields.io/badge/Python-3.5%2F3.6-blue.svg)]((https://shields.io/))
 [![](https://img.shields.io/badge/Sebastian-Rodr%C3%ADguez-brightgreen.svg?colorB=00fff0)](https://www.homebrain.com.ar)
