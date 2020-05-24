@@ -1,15 +1,24 @@
 # Intel® Edge AI for IoT Developers Nanodegree Program
+
 # Project N°1 - Write-Up:
+
 
 To develop the present project, tests were carried out with three pre-trained TensorFlow models and the results obtained were compared against a pre-trained Intel® model. In summary, I can said that much better results were obtained with the Intel® pre-trained model, I tested the models on CPU and GPU.
 
-## Explaining Custom Layers
+
+## Explaining Custom Layers:
+
+En nuestro proyecto se han utilizado modelos pre-entrenados de TensorFlow, según hemos observado, cuanto más complejos han sido los modelos escogidos, mayor cantidad de custom layers hemos encontrado. Tener en cuenta que nuestra aplicación detecta si hay layers no soportados y menciona cuales son.
+
+In our project, pre-trained TensorFlow models have been used, as we have observed, the more complex the chosen models have been, the more custom layers we have found.
 
 The process behind converting custom layers involves...
 
 Some of the potential reasons for handling custom layers are...
 
+
 ## Comparing Model Performance
+
 
 My method(s) to compare models before and after conversion to Intermediate Representations
 were...
