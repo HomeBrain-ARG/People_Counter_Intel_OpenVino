@@ -53,8 +53,8 @@ These models were compared to the Intel model, downloaded directly with the scri
 
 ### Models comparison:
 
-Model | Size before conversion [MB] | Size after conversion [MB] | Average inference Speed [ms] | Probability threshold used [%]
-------|----------------------------|-----------------------------|----------------------|--------------------------------
+Model | Size before conversion [MB] | Size after conversion [MB] | Average inference Speed [ms] | Probability threshold used [%] | Memory Usage [MB]
+------|----------------------------|-----------------------------|----------------------|--------------------------------|---
 ssd_mobilenet_v1_coco | 59,5 | 27,3 | 
 ssd_resnet50_v1 | 270,2 | 206,9 | 
 ssd_mobilenet_v2_coco | 140,8 | 67,4 | 
