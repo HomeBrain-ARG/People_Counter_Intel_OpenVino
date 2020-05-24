@@ -81,8 +81,9 @@ In my case, because I work in industrial environments, I find it very useful to 
 
 ## Assess Effects on End User Needs
 
-Lighting, model accuracy, and camera focal length/image size have different effects on a
-deployed edge model. The potential effects of each of these are as follows...
+In vision systems in industrial environments, the lighting issue is very complex. In general, it's sought to install light reflectors where video cameras are installed, this in order to avoid errors due to adverse environmental conditions.
+
+With reference to the accuracy of the models, I consider that to detect people, the examples within the OpenVino toolkit are sufficient, in industrial environments the existing models are generally scarce. This is why you have to think about training models from the beginning of a project and then use them with OpenVino.
 
 ## Model Research
 
