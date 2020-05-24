@@ -69,17 +69,10 @@ ssd_resnet50_v1 | 270.2 | 206.9 | 441.32 | 554.2
 ssd_mobilenet_v2_coco | 140.8 | 67.4 | 28.26 | 198.4
 pedestrian-detection-adas-0002 | - | 4.7 | 24.3 | 82.7
 
+All models have been tested with probability thresholds of: 0.2; 0.3; 0.5; 0.8 and 0.95.
 
+It is observed that the most efficient model ends up being the "Pedestrian-detection-adas-0002" embedded within the algorithm that includes the OpenVino v2019.R3 toolkit.
 
-
-My method(s) to compare models before and after conversion to Intermediate Representations
-were...
-
-The difference between model accuracy pre- and post-conversion was...
-
-The size of the model pre- and post-conversion was...
-
-The inference time of the model pre- and post-conversion was...
 
 ## Assess Model Use Cases
 
