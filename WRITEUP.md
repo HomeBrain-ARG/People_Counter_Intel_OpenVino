@@ -22,8 +22,14 @@ For this I used the following pages to better understand if it was going to be u
 https://github.com/scoliann/GenderClassifierCNN
 https://cloud.google.com/tpu/docs/inception-v3-advanced
 
-Unfortunately I could not generate the IR with the Model Optimizer because it gave me countless errors. I had very little time to finish Project No. 1 and decided to use simpler models to the implementation (mainly SSD pre-trained models).
+Unfortunately I could not generate the IR of Inception V3 with the Model Optimizer because it gave me countless errors. I had very little time to finish Project No. 1 and decided to use simpler models to the implementation (mainly SSD pre-trained models).
 
+Another model that was tried to be used was:
+
+* faster_rcnn_nas_coco_2018_01_28:
+    - http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2018_01_28.tar.gz
+
+In this case I was able to convert it, for a time I dismissed it due to its large size and slowness.
 
 ## Comparing Model Performance:
 
@@ -37,8 +43,7 @@ Los seleccionados para realizar las pruebas fueron los siguientes:
 2) ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03: 
     - http://download.tensorflow.org/models/object_detection/ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03.tar.gz
 
-3) faster_rcnn_nas_coco_2018_01_28:
-    - http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2018_01_28.tar.gz
+
 
 Estos modelos se compararon con el modelo de Intel, descargado directamente con el script \deployment_tools\tools\model_downloader\downloader.py.
 
