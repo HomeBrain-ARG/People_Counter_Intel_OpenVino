@@ -1,5 +1,5 @@
 # Intel® Edge AI for IoT Developers Nanodegree Program
-# Project 1 - Write-Up:
+# Project N°1 - Write-Up:
 
 To develop the present project, tests were carried out with three pre-trained TensorFlow models and the results obtained were compared against a pre-trained Intel® model. In summary, I can said that much better results were obtained with the Intel® pre-trained model, I tested the models on CPU and GPU.
 
