@@ -66,7 +66,7 @@ Model | Size before conversion [MB] | Size after conversion [MB] | Average infer
 ------|----------------------------|-----------------------------|------------------------------|------------------
 ssd_mobilenet_v1_coco | 59.5 | 27.3 | 35.63 | 114.3 
 ssd_resnet50_v1 | 270.2 | 206.9 | 441.32 | 554.2
-ssd_mobilenet_v2_coco | 140.8 | 67.4 | 
+ssd_mobilenet_v2_coco | 140.8 | 67.4 | 28.26 | 198.4
 pedestrian-detection-adas-0002 | - | 4.7 | 
 
 
