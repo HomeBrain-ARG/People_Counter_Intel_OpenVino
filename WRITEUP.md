@@ -25,7 +25,7 @@ https://cloud.google.com/tpu/docs/inception-v3-advanced
 Unfortunately I could not generate the IR with the Model Optimizer because it gave me countless errors. I had very little time to finish Project No. 1 and decided to use simpler models to the implementation (mainly SSD pre-trained models).
 
 
-## Comparing Model Performance
+## Comparing Model Performance:
 
 Como se ha indicado previamente, se han seleccionado modelos de TensorFlow de la siguiente página: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md.
 
@@ -39,6 +39,10 @@ Los seleccionados para realizar las pruebas fueron los siguientes:
 
 3) faster_rcnn_nas_coco_2018_01_28:
     - http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2018_01_28.tar.gz
+
+Estos modelos se compararon con el modelo de Intel:
+
+4) pedestrian-detection-adas-0002: Descargado directamente con el script \deployment_tools\tools\model_downloader\downloader.py
 
 My method(s) to compare models before and after conversion to Intermediate Representations
 were...
