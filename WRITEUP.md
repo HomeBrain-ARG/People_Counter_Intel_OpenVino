@@ -27,6 +27,18 @@ Unfortunately I could not generate the IR with the Model Optimizer because it ga
 
 ## Comparing Model Performance
 
+Como se ha indicado previamente, se han seleccionado modelos de TensorFlow de la siguiente página: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md.
+
+Los seleccionados para realizar las pruebas fueron los siguientes:
+
+1) ssd_mobilenet_v1_coco_2018_01_28: 
+    - http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2018_01_28.tar.gz.
+
+2) ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03: 
+    - http://download.tensorflow.org/models/object_detection/ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03.tar.gz
+
+3) faster_rcnn_nas_coco_2018_01_28:
+    - http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2018_01_28.tar.gz
 
 My method(s) to compare models before and after conversion to Intermediate Representations
 were...
