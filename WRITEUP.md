@@ -40,10 +40,11 @@ Los seleccionados para realizar las pruebas fueron los siguientes:
 3) faster_rcnn_nas_coco_2018_01_28:
     - http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2018_01_28.tar.gz
 
-Estos modelos se compararon con el modelo de Intel, descargado directamente con el script \deployment_tools\tools\model_downloader\downloader.py:
-
 4) pedestrian-detection-adas-0002:
         - https://docs.openvinotoolkit.org/latest/_models_intel_pedestrian_detection_adas_0002_description_pedestrian_detection_adas_0002.html
+
+Estos modelos se compararon con el modelo de Intel, descargado directamente con el script \deployment_tools\tools\model_downloader\downloader.py.
+
 
 
 
