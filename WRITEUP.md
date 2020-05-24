@@ -46,7 +46,7 @@ Los seleccionados para realizar las pruebas fueron los siguientes:
 3) ssd_mobilenet_v2_coco_2018_03_29: 
     - http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 
-Estos modelos se compararon con el modelo de Intel, descargado directamente con el script \deployment_tools\tools\model_downloader\downloader.py.
+These models were compared to the Intel model, downloaded directly with the script "\opt\intel\openvino\deployment_tools\tools\model_downloader\downloader.py".
 
 4) pedestrian-detection-adas-0002: 
         - https://docs.openvinotoolkit.org/latest/_models_intel_pedestrian_detection_adas_0002_description_pedestrian_detection_adas_0002.html
