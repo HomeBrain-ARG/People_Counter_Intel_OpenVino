@@ -53,7 +53,7 @@ These models were compared to the Intel model, downloaded directly with the scri
 
 ### Models comparison:
 
-### Using GPU Intel Corporation HD Graphics 530 (rev 06):
+### Using GPU Intel Corporation HD Graphics 530:
 Model | Size before conversion [MB] | Size after conversion [MB] | Average inference Speed [ms] | Memory Usage [MB]
 ------|----------------------------|-----------------------------|------------------------------|------------------
 ssd_mobilenet_v1_coco | 59.5 | 27.3 | 37.18 | 266,9
