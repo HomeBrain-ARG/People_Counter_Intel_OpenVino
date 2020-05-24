@@ -43,7 +43,8 @@ Los seleccionados para realizar las pruebas fueron los siguientes:
 2) ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03: 
     - http://download.tensorflow.org/models/object_detection/ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03.tar.gz
 
-
+3) ssd_mobilenet_v2_coco_2018_03_29: 
+    - http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 
 Estos modelos se compararon con el modelo de Intel, descargado directamente con el script \deployment_tools\tools\model_downloader\downloader.py.
 
