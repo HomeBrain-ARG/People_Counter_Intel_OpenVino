@@ -61,7 +61,7 @@ ssd_resnet50_v1 | 270.2 | 206.9 | 46.35 | 266.4
 ssd_mobilenet_v2_coco | 140.8 | 67.4 | 32.62 | 266.7
 pedestrian-detection-adas-0002 | - | 4.7 | 28.23 | 267.0
 
-### Using CPU:
+### Using CPU Intel Core(TM) i7-6700K:
 Model | Size before conversion [MB] | Size after conversion [MB] | Average inference Speed [ms] | Memory Usage [MB]
 ------|----------------------------|-----------------------------|------------------------------|------------------
 ssd_mobilenet_v1_coco | 59.5 | 27.3 | 37.18 | 266,9
