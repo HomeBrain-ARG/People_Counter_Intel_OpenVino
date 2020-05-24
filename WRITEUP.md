@@ -1,10 +1,5 @@
-# Project Write-Up
-
-You can use this document as a template for providing your project write-up. However, if you
-have a different format you prefer, feel free to use it as long as you answer all required
-questions.
-
-Para desarrollar el presente proyecto, se realizaron pruebas con tres modelos pre-entrenados de TensorFlow y se compararon los resultados obtenidos con los mismos contra un modelo pre-entrenado de Intel®. Como resumen se puede decir que se obtuvieron resultados mucho mejores con el modelo pre-entrenado de Intel®, probándose en CPU, GPU y Intel® Movidius™ NCS. 
+# Intel® Edge AI for IoT Developers Nanodegree Program
+# Project 1 - Write-Up:
 
 To develop the present project, tests were carried out with three pre-trained TensorFlow models and the results obtained were compared against a pre-trained Intel® model. In summary, I can said that much better results were obtained with the Intel® pre-trained model, I tested the models on CPU and GPU.
 
