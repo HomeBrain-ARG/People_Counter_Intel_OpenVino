@@ -76,9 +76,8 @@ It is observed that the most efficient model ends up being the "Pedestrian-detec
 
 ## Assess Model Use Cases
 
-Some of the potential use cases of the people counter app are...
+In my case, because I work in industrial environments, I find it very useful to use this type of tools in personal safety systems, such as: detection of personnel working in areas with movements of systems that move loads (cranes, for instance) on top of them; in this case, the advance of the same towards where the personnel are could be disabled by the automation system, preventing incidents and/or accidents.
 
-Each of these use cases would be useful because...
 
 ## Assess Effects on End User Needs
 
