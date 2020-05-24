@@ -8,18 +8,21 @@ To develop the present project, tests were carried out with three pre-trained Te
 
 ## Explaining Custom Layers:
 
-En nuestro proyecto se han utilizado modelos pre-entrenados de TensorFlow, según hemos observado, cuanto más complejos han sido los modelos escogidos, mayor cantidad de custom layers hemos encontrado. Tener en cuenta que nuestra aplicación detecta si hay layers no soportados y menciona cuales son.
-
 In our project, pre-trained TensorFlow models have been used, as we have observed, the more complex the chosen models have been, the more custom layers we have found.
 
-Debido a la complejidad del proceso, he 
-seguido minuciosamente los pasos indicados en la documentación de OpenVino v2019.R3: 
+Due to the complexity of the process, I have carefully followed the steps indicated in the documentation of OpenVino v2019.R3:
 
 https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Offloading_Sub_Graph_Inference.html
 
-The process behind converting custom layers involves...
+Una de las tareas que quise realizar es, detectar adicionalmente el género de cada persona que aparecía de espaldas en la cámara, en el video original del proyecto "Pedestrian_Detect_2_1_1.mp4". Para esto quise utilizar un modelo Inception V3 de TensorFlow/Keras: 
 
-Some of the potential reasons for handling custom layers are...
+One of the tasks I wanted to carry out, is to additionally detect the gender of each person who appeared with his back to the camera, in the original video of the project "Pedestrian_Detect_2_1_1.mp4". For this I wanted to use a TensorFlow / Keras Inception V3 model: https://github.com/tensorflow/models/tree/master/research/inception
+
+For this I used the following pages to better understand if it was going to be useful to me:
+https://github.com/scoliann/GenderClassifierCNN
+https://cloud.google.com/tpu/docs/inception-v3-advanced
+
+Unfortunately I could not generate the IR with the Model Optimizer because it gave me countless errors. I had very little time to finish Project No. 1 and decided to use simpler models to the implementation (mainly SSD pre-trained models).
 
 
 ## Comparing Model Performance
