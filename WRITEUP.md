@@ -55,8 +55,8 @@ These models were compared to the Intel model, downloaded directly with the scri
 
 Model | Size after conversion [MB] | Size before conversion [MB] | Inference Speed [ms] | Probability threshold used [%]
 ------|----------------------------|-----------------------------|----------------------|--------------------------------
-ssd_mobilenet_v1_coco | 
-ssd_resnet50_v1 | 
+ssd_mobilenet_v1_coco | 59,5 | 27,3 | 
+ssd_resnet50_v1 | 270,2 | 
 ssd_mobilenet_v2_coco |
 pedestrian-detection-adas-0002 | 
 
