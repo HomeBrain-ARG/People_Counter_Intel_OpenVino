@@ -105,8 +105,8 @@ In investigating potential people counter models, I tried each of the following 
   - The model was insufficient for the application because the precision is not correct, it does not continually detect people. 
   - I tried to improve the model for the app by modifying the probability thresholds.
 
-- Model 3: [Name]
-  - [Model Source]
-  - I converted the model to an Intermediate Representation with the following arguments...
-  - The model was insufficient for the app because...
-  - I tried to improve the model for the app by...
+- Model 3: ssd_mobilenet_v2_coco.
+  - http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz.
+  - I converted the model to an Intermediate Representation with the following arguments: "python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json".
+  - The  model was insufficient for the application because the precision is not correct, it does not continually detect people.
+  - I tried to improve the model for the app by modifying the probability thresholds.
