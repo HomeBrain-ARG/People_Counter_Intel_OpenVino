@@ -12,7 +12,7 @@ In our project, pre-trained TensorFlow models have been used, as we have observe
 
 Due to the complexity of the process, I have carefully followed the steps indicated in the documentation of OpenVino v2019.R3:
 
-https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Offloading_Sub_Graph_Inference.html
+https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Offloading_Sub_Graph_Inference.html 
 
 Una de las tareas que quise realizar es, detectar adicionalmente el género de cada persona que aparecía de espaldas en la cámara, en el video original del proyecto "Pedestrian_Detect_2_1_1.mp4". Para esto quise utilizar un modelo Inception V3 de TensorFlow/Keras: 
 
