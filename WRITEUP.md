@@ -125,7 +125,7 @@ It is observed that the most efficient model ends up being the "Pedestrian-detec
 In my case, because I work in industrial environments, I find it very useful to use this type of tools in personal safety systems, such as: detection of personnel working in areas with movements of systems that move loads (cranes, for instance) on top of them; in this case, the advance of the same towards where the personnel are could be disabled by the automation system, preventing incidents and/or accidents.
 
 
-With the same reasoning as above, this app can be used additionally to detect people on the threshold of a door, for example, serving to notify your cell phone that someone has arrived.
+With the same reasoning as above, this app can be used additionally to detect people on the threshold of a selected place, for example, serving to notify your cell phone that someone is in a certain place.
 
 The last example can be the use of this system as it is to count the average time that a person is in front of a computer, with any webcam (including the one included in their notebook) this action can be performed.
 This is because within the variables it reports, the average time in front of the camera is found.
