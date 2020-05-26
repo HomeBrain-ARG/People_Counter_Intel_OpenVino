@@ -37,7 +37,7 @@ class Network:
         self.exec_network = None
         self.infer_request = None
 
-    def load_model(self, model, device, cpu_extension, num_requests=0):
+    def load_model(self, model, device, cpu_extension, num_requests):
         '''
         Load the model given IR files.
         Defaults to CPU as device for use in the workspace.
@@ -58,6 +58,7 @@ class Network:
         # Read the IR as a network.
         self.network = IENetwork(model=model_xml, weights=model_bin)
         log.info("Inference - load_model(): IR was read.")
+
         ### TODO: Check for supported layers ###
         if device == "CPU":
             supported_layers = self.plugin.query_network(self.network, device)
@@ -73,6 +74,7 @@ class Network:
         else:
             self.exec_network = self.plugin.load_network(self.network, device, num_requests=num_requests)
             log.info("Inference - load_model(): IENetwork loaded and num_requests=num_requests.")
+
         # Get the input and output layers.
         self.input_blob = next(iter(self.network.inputs))
         log.info("Inference - load_model(): Input blob initialized.")
@@ -91,32 +93,32 @@ class Network:
         log.info("Inference - get_input_shape(): executed.")
         return self.network.inputs[self.input_blob].shape
 
-    def exec_net(self, image):
+    def exec_net(self, image, request_id):
         '''
         Given an input image, this function makes an asynchronous inference request.
         '''
         ### TODO: Start an asynchronous request ###
         ### TODO: Return any necessary information ###
-        self.exec_network.start_async(request_id=0, inputs={self.input_blob: image})
+        self.exec_network.start_async(request_id=request_id, inputs={self.input_blob: image})
         log.info("Inference - exec_net(): executed.")
         return
 
-    def wait(self):
+    def wait(self, request_id):
         '''
         Function to check the status of the inference request.
         '''
         ### TODO: Wait for the request to be complete. ###
         ### TODO: Return any necessary information ###
         ### Note: You may need to update the function parameters. ###
-        wait_status = self.exec_network.requests[0].wait(-1)
+        wait_status = self.exec_network.requests[request_id].wait(-1)
         log.info("Inference - wait(): executed.")
         return wait_status
 
-    def get_output(self):
+    def get_output(self, request_id):
         '''
         Returns a list of the results for the output layer of the network.
         '''
         ### TODO: Extract and return the output results
         ### Note: You may need to update the function parameters. ###
-        log.info("Inference: get_output executed.")        
-        return self.exec_network.requests[0].outputs[self.output_blob]
+        log.info("Inference - get_output(): executed.")        
+        return self.exec_network.requests[request_id].outputs[self.output_blob]
