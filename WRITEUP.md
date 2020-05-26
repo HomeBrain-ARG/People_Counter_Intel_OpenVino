@@ -62,6 +62,9 @@ Another way to execute the same app using a WEBCAM is the following:
 python3 main.py -i CAM -m frozen_inference_graph.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU --prob_threshold 0.3 --color GREEN | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
 ```
 
+
+### **Obtaining help using the app:**
+
 To obtain more details about the execution of the app, please execute the following in the command line:
 ```
 python3 main.py --help
