@@ -34,8 +34,12 @@ The mechanics to perform a conversion is as follows:
 
 In our project, pre-trained SSD TensorFlow models have been used, as we have observed, the more complex the chosen models have been, the more custom layers we have found.
 
-We'll see an example of conversion and executing using the pre-trained model called **SSD_MobileNet_v1_coco_2018_01_28**:
+We'll see an example of conversion and executing using the pre-trained model of TF called **SSD_MobileNet_v1_coco_2018_01_28**:
 
+**First step - Conversion:**
+```
+python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_support.json
+```
 
 
 ## Comparing Model Performance:
