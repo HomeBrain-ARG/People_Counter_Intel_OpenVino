@@ -184,8 +184,8 @@ In investigating potential people counter models, I tried each of the following 
 
 - Model 4: pedestrian-detection-adas-0002: 
     - https://docs.openvinotoolkit.org/latest/_models_intel_pedestrian_detection_adas_0002_description_pedestrian_detection_adas_0002.html.
-  - This model doesn't need conversion because is and Intel model:
-  - To execute it use the following command:
+  - This model doesn't need conversion because is and Intel model compatible with OpenVino (.xml and .bin files are provided directly).
+  - You can execute directly the app using this model as follows:
   ```
   python3 main.py -i Pedestrian_Detect_2_1_1.mp4 -m pedestrian-detection-adas-0002.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU --prob_threshold 0.3 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
   ```
