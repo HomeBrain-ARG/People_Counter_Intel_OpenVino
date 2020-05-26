@@ -158,18 +158,26 @@ In investigating potential people counter models, I tried each of the following 
 - Model 1: ssd_mobilenet_v1_coco.
   - http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2018_01_28.tar.gz
   - I converted the model to an Intermediate Representation with the following arguments: 
-  ``` python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_support.json```
-  - The model was insufficient for the application because the precision is not correct, it does not continually detect people.
-  - I tried to improve the model for the app by modifying the probability thresholds.
+  ```
+  python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_support.json
+  ```
+  - The converted model worked in efficient way with a good precision.
+  - I tried differents probability thresholds from 0.3 to 0.8 with success. The recommended value is 0.3.
   
 - Model 2: ssd_resnet50_v1_fpn.
   - http://download.tensorflow.org/models/object_detection/ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync_2018_07_03.tar.gz.
-  - I converted the model to an Intermediate Representation with the following arguments: "python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json".
-  - The model was insufficient for the application because the precision is not correct, it does not continually detect people. 
-  - I tried to improve the model for the app by modifying the probability thresholds.
+  - I converted the model to an Intermediate Representation with the following arguments: 
+  ```
+  python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
+  ```
+  - The converted model doesn't worked in efficient way because the low speed of inference, approx. 500ms per frame. At the end of the day the accuracy was acceptable. 
+  - The recommended value of probability threshold was 0.3.
 
 - Model 3: ssd_mobilenet_v2_coco.
   - http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz.
-  - I converted the model to an Intermediate Representation with the following arguments: "python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json".
-  - The  model was insufficient for the application because the precision is not correct, it does not continually detect people.
-  - I tried to improve the model for the app by modifying the probability thresholds.
+  - I converted the model to an Intermediate Representation with the following arguments: 
+  ```
+  python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
+  ```
+  - The converted model worked in efficient way (32ms of iference time per frame) with a good precision.
+  - I tried differents probability thresholds from 0.3 to 0.8 with success. The recommended value is 0.3.
