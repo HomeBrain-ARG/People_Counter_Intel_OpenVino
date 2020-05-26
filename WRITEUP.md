@@ -47,8 +47,31 @@ After this step I obtained the following files in the same directory where the o
 - frozen_inference_graph.bin
 - frozen_inference_graph.xml
 
+These two files are the ones that we'll need later to run our app.
+
+
 ### **Send step - Execution:**
 
+Execution of the app using the example file "Pedestrian_Detect_2_1_1.mp4":
+```
+python3 main.py -i Pedestrian_Detect_2_1_1.mp4 -m frozen_inference_graph.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU --prob_threshold 0.3 --color GREEN | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
+```
+
+Another way to execute the same app using a WEBCAM is the following:
+```
+python3 main.py -i CAM -m frozen_inference_graph.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU --prob_threshold 0.3 --color GREEN | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
+```
+
+To obtain more details about the execution of the app, please execute the following in the command line:
+```
+python3 main.py --help
+```
+
+Or:
+```
+python3 main.py -h
+```
+Typing this will run the program's help.
 
 
 ## Comparing Model Performance:
