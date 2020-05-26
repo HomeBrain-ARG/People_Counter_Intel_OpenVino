@@ -10,9 +10,11 @@ To develop the present project, tests were carried out with three pre-trained Te
 
 Custom Layers conversion flow is as follows:
 
+
 ![Custom Layers Conversion Flow](./images/workflow_steps.png)
 
 Link: https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html
+
 
 The tool used to perform the conversions of different pre-trained models of the TF, Caffe and ONNX type, among others to OPenVino is called "Model Optimizer".
 
@@ -24,14 +26,16 @@ After the conversion, IR will be made up of two files:
 * File with **.xml** extension: Describes the network topology.
 * File with **.bin** extension: Contains the weights and biases binary data.
 
+The mechanics to perform a conversion is as follows:
 
-The steps to convert custom layers are the following one:
-
-• Using Model Optimizer to Generate IR Files Containing the Custom Layer.
+• Using Model Optimizer to generate IR files containing the custom layer.
 • Edit the CPU Extension Template Files.
-• Execute the Model with the Custom Layer.
+• Execute the model with the custom layer.
 
 In our project, pre-trained SSD TensorFlow models have been used, as we have observed, the more complex the chosen models have been, the more custom layers we have found.
+
+We'll see an example of conversion and executing using the pre-trained model called **SSD_MobileNet_v1_coco_2018_01_28**:
+
 
 
 ## Comparing Model Performance:
