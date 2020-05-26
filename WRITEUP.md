@@ -10,26 +10,22 @@ To develop the present project, tests were carried out with three pre-trained Te
 
 In our project, pre-trained TensorFlow models have been used, as we have observed, the more complex the chosen models have been, the more custom layers we have found.
 
-Due to the complexity of the process, I have carefully followed the steps indicated in the documentation of OpenVino v2019.R3:
+OPenVino cuenta con la herramienta llamada "Model Optimizer" para realziar conversiones entre diferentes modelos pre-entrenados. 
 
-https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Offloading_Sub_Graph_Inference.html 
+En general esta herramienta se encuentra en el path: ```/opt/intel/openvino/deployment_tools/model_optimizer```
 
-Una de las tareas que quise realizar es, detectar adicionalmente el género de cada persona que aparecía de espaldas en la cámara, en el video original del proyecto "Pedestrian_Detect_2_1_1.mp4". Para esto quise utilizar un modelo Inception V3 de TensorFlow/Keras: 
+Model Optimizer produces an Intermediate Representation (IR) of the network, which can be read, loaded, and inferred with the Inference Engine. The Inference Engine API offers a unified API across a number of supported Intel® platforms. The Intermediate Representation is a pair of files describing the model:
 
-One of the tasks I wanted to carry out, is to additionally detect the gender of each person who appeared with his back to the camera, in the original video of the project "Pedestrian_Detect_2_1_1.mp4". For this I wanted to use a TensorFlow / Keras Inception V3 model: https://github.com/tensorflow/models/tree/master/research/inception
+    .xml - Describes the network topology
+    .bin - Contains the weights and biases binary data.
 
-For this I used the following pages to better understand if it was going to be useful to me:
-https://github.com/scoliann/GenderClassifierCNN
-https://cloud.google.com/tpu/docs/inception-v3-advanced
 
-Unfortunately I could not generate the IR of Inception V3 with the Model Optimizer because it gave me countless errors. I had very little time to finish Project No. 1 and decided to use simpler models to the implementation (mainly SSD pre-trained models).
+The steps to convert custom layers are the following one:
 
-Another model that was tried to be used was:
+• Using Model Optimizer to Generate IR Files Containing the Custom Layer.
+• Edit the CPU Extension Template Files.
+• Execute the Model with the Custom Layer.
 
-* faster_rcnn_nas_coco_2018_01_28:
-    - http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2018_01_28.tar.gz
-
-In this case I was able to convert it, for a time I dismissed it due to its large size and slowness.
 
 ## Comparing Model Performance:
 
