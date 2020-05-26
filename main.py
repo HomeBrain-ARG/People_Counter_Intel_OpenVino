@@ -393,6 +393,8 @@ def infer_on_stream(args, client):
         sys.stdout.buffer.write(frame)
         sys.stdout.flush()
         log.info("Main - infer_on_stream(): Frame sent to FFMPEG server.")        
+        
+        # Write video for test purposes.
         #fourcc = cv2.VideoWriter_fourcc('X','V','I','D')
         #test_out_video = cv2.VideoWriter('test_out_video.vid', fourcc, 30, (width,height))
 
