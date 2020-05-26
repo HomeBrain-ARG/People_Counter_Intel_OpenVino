@@ -299,7 +299,7 @@ def infer_on_stream(args, client):
     # Grab the shape of the input.
     width = int(cap.get(3))
     height = int(cap.get(4))
-### CHANGE 25/05/2020: Calculate FPS of input stream. ###
+### CHANGE 25/05/2020: Calculate FPS of input stream in webcam, video or image. ###
     # Obtain FPS from input stream.
     CAP_FPS = int(cap.get(cv2.CAP_PROP_FPS))
     log.info("Main - infer_on_stream(): CV2 obtaining FPS.")
