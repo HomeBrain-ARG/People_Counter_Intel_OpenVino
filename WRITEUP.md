@@ -125,6 +125,16 @@ It is observed that the most efficient model ends up being the "Pedestrian-detec
 In my case, because I work in industrial environments, I find it very useful to use this type of tools in personal safety systems, such as: detection of personnel working in areas with movements of systems that move loads (cranes, for instance) on top of them; in this case, the advance of the same towards where the personnel are could be disabled by the automation system, preventing incidents and/or accidents.
 
 
+With the same reasoning as above, this app can be used additionally to detect people on the threshold of a door, for example, serving to notify your cell phone that someone has arrived.
+
+The last example can be the use of this system as it is to count the average time that a person is in front of a computer, with any webcam (including the one included in their notebook) this action can be performed.
+This is because within the variables it reports, the average time in front of the camera is found.
+
+To last examples, only you need to execute the following in order to detect persons with high grade of accuracy:
+```
+python3 main.py -i CAM -m frozen_inference_graph.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU --prob_threshold 0.3 --color GREEN | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
+```
+
 ## Assess Effects on End User Needs:
 
 In vision systems in industrial environments, the lighting issue is very complex. In general, it's sought to install light reflectors where video cameras are installed, this in order to avoid errors due to adverse environmental conditions.
