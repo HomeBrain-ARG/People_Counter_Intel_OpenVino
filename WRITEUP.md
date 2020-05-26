@@ -137,9 +137,20 @@ python3 main.py -i CAM -m frozen_inference_graph.xml -l /opt/intel/openvino/depl
 
 ## Assess Effects on End User Needs:
 
-In vision systems in industrial environments, the lighting issue is very complex. In general, it's sought to install light reflectors where video cameras are installed, this in order to avoid errors due to adverse environmental conditions.
+* In vision systems in industrial environments, the lighting issue is very complex. In general, it's sought to install light reflectors where video cameras are installed, this in order to avoid errors due to adverse environmental conditions.
 
 With reference to the accuracy of the models, I consider that to detect people, the examples within the OpenVino toolkit are sufficient, in industrial environments the existing models are generally scarce. This is why you have to think about training models from the beginning of a project and then use them with OpenVino.
+
+We must understand that the lower the illumination, the lower the model's accuracy will be.
+
+* La distancia focal es parte de las características intrínsecas de una cámara, para aplicaciones en donde las distancias varíen, es posible utilizar lentes motorizadas para corregir esta variable. De esta manera siempre se tendrá una adquisición de la imágen con buena presición.
+Hay que tener en cuenta que, en el caso de una Webcam, las distancias focales no pueden superar los 
+
+• Lighting and Focal Length of the camera depends on the system installed. A bad lighting can seriosly reduces the accuracy of the model.
+
+• One thing to notice is that, the camera's angle plays an important role that has affects on both the lighting as well as model accuracy.
+
+• The camera image size should be compatible with the model for proper detection. The model accuracy is calculated using the confusion matrix which gives the details about the occurance of false postivites and negatives which degrades the accuracy of the model.
 
 ## Model Research:
 
