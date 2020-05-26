@@ -79,9 +79,9 @@ Typing this will run the program's help.
 
 ## Comparing Model Performance:
 
-Como se ha indicado previamente, se han seleccionado modelos de TensorFlow de la siguiente página: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md.
+As previously indicated, TensorFlow models have been selected from the following page: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md.
 
-Los seleccionados para realizar las pruebas fueron los siguientes:
+Those selected to perform the tests were the following:
 
 1) ssd_mobilenet_v1_coco_2018_01_28: 
     - http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2018_01_28.tar.gz.
