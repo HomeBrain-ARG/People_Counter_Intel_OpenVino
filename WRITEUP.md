@@ -10,7 +10,7 @@ To develop the present project, tests were carried out with three pre-trained Te
 
 Custom Layers conversion flow is as follows:
 
-
+![Custom Layers Conversion Flow](./images/workflow_steps.png)
 
 The tool used to perform the conversions of different pre-trained models of the TF, Caffe and ONNX type, among others to OPenVino is called "Model Optimizer".
 
