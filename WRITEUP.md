@@ -5,6 +5,15 @@
 
 To develop the present project, tests were carried out with three pre-trained TensorFlow models and the results obtained were compared against a pre-trained Intel® model. In summary, I can said that much better results were obtained with the Intel® pre-trained model, I tested the models on CPU and GPU.
 
+The basic execution of the app is as follows:
+```
+python3 main.py -i [CAM|Video|Image] -m [file of model in .xml format] -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d [GPU|CPU|MYRIAD] --prob_threshold [values from 0.0 to 1.0, recommended 0.3 to 0.7] --color [BLUE|GREEN|RED] | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
+```
+
+Execution example:
+```
+python3 main.py -i Pedestrian_Detect_2_1_1.mp4 -m frozen_inference_graph.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU --prob_threshold 0.3 --color GREEN | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
+```
 
 ## Explaining Custom Layers:
 
