@@ -36,14 +36,14 @@ In our project, pre-trained SSD TensorFlow models have been used, as we have obs
 
 We'll see an example of conversion and executing using the pre-trained model of TF called **SSD_MobileNet_v1_coco_2018_01_28**:
 
-**First step - Conversion:**
+- **First step - Conversion:**
 ```
 python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_support.json
 ```
 
 In this step keep in mind the different parameters depending on the type of pre-trained model, for instance: in this case, TF models need the parameter **--reverse_input_channels** because, as the parameter said, the channels are inverted with respect to OpenVino models.
 
-**Send step - Execution:**
+- **Send step - Execution:**
 
 
 
