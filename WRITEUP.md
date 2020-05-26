@@ -95,7 +95,7 @@ Los seleccionados para realizar las pruebas fueron los siguientes:
 These models were compared to the Intel model, downloaded directly with the script "\opt\intel\openvino\deployment_tools\tools\model_downloader\downloader.py".
 
 4) pedestrian-detection-adas-0002: 
-        - https://docs.openvinotoolkit.org/latest/_models_intel_pedestrian_detection_adas_0002_description_pedestrian_detection_adas_0002.html.
+    - https://docs.openvinotoolkit.org/latest/_models_intel_pedestrian_detection_adas_0002_description_pedestrian_detection_adas_0002.html.
 
 ### Models comparison:
 
