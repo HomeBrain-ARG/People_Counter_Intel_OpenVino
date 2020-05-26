@@ -102,18 +102,18 @@ These models were compared to the Intel model, downloaded directly with the scri
 #### _Using GPU Intel Corporation HD Graphics 530:_
 | Model | Size before conversion [MB] | Size after conversion [MB] | Average inference Speed [ms] | Memory Usage [MB] |
 |:-----:|:---------------------------:|:--------------------------:|:----------------------------:|:-----------------:|
-ssd_mobilenet_v1_coco | 59.5 | 27.3 | 37.18 | 266,9
-ssd_resnet50_v1 | 270.2 | 206.9 | 46.35 | 266.4
-ssd_mobilenet_v2_coco | 140.8 | 67.4 | 32.62 | 266.7
-pedestrian-detection-adas-0002 | - | 4.7 | 28.23 | 267.0
+| ssd_mobilenet_v1_coco | 59.5 | 27.3 | 37.18 | 266,9 |
+| ssd_resnet50_v1 | 270.2 | 206.9 | 46.35 | 266.4 |
+| ssd_mobilenet_v2_coco | 140.8 | 67.4 | 32.62 | 266.7 |
+| pedestrian-detection-adas-0002 | - | 4.7 | 28.23 | 267.0 |
 
 #### _Using CPU Intel Core i7-6700K:_
 | Model | Size before conversion [MB] | Size after conversion [MB] | Average inference Speed [ms] | Memory Usage [MB] |
 |:-----:|:---------------------------:|:--------------------------:|:----------------------------:|:-----------------:|
-ssd_mobilenet_v1_coco | 59.5 | 27.3 | 35.63 | 114.3 
-ssd_resnet50_v1 | 270.2 | 206.9 | 441.32 | 554.2
-ssd_mobilenet_v2_coco | 140.8 | 67.4 | 28.26 | 198.4
-pedestrian-detection-adas-0002 | - | 4.7 | 24.3 | 82.7
+| ssd_mobilenet_v1_coco | 59.5 | 27.3 | 35.63 | 114.3 |
+| ssd_resnet50_v1 | 270.2 | 206.9 | 441.32 | 554.2 |
+| ssd_mobilenet_v2_coco | 140.8 | 67.4 | 28.26 | 198.4 |
+| pedestrian-detection-adas-0002 | - | 4.7 | 24.3 | 82.7 |
 
 All models have been tested with probability thresholds of: 0.2; 0.3; 0.5; 0.8 and 0.95.
 
@@ -130,7 +130,7 @@ With the same reasoning as above, this app can be used additionally to detect pe
 The last example can be the use of this system as it is to count the average time that a person is in front of a computer, with any webcam (including the one included in their notebook) this action can be performed.
 This is because within the variables it reports, the average time in front of the camera is found.
 
-To last examples, only you need to execute the following in order to detect persons with high grade of accuracy:
+For the last examples, you only need to run the following command to detect people with a high degree of precision:
 ```
 python3 main.py -i CAM -m frozen_inference_graph.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU --prob_threshold 0.3 --color GREEN | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
 ```
