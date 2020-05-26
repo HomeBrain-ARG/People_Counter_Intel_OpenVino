@@ -142,7 +142,7 @@ With reference to the accuracy of the models, I consider that to detect people, 
 We must understand that the lower the illumination, the lower the model's accuracy will be.
 
 * The focal length is part of the intrinsic characteristics of a camera, for applications where the distances vary, it is possible to use motorized lenses to correct this variable. In this way you will always have an acquisition of the image with good precision.
-Keep in mind that, in the case of a Webcam, the focal lengths do not exceed tens of millimeters (for 1080p, in general, they are between 3mm and 12mm approx.), this means that they can capture images at about 7m to 20m.
+Keep in mind that, in the case of a Webcam, the focal lengths do not exceed tens of millimeters (for 1080p, in general, they are between 3mm and 12mm approx.), This means that they can capture images at a maximum distances of between 7m to 20m.
 
 * The size of the image is another intrinsic condition of the construction of the cameras, we can say that the larger the image, the more elements in the frame can be covered, but with smaller objects. With a smaller image we should have a better focus.
 Apart from this, it is necessary to select the model according to the image size, otherwise we may have false positives or a decrease in accuracy when the model detects the elements.
@@ -157,7 +157,8 @@ In investigating potential people counter models, I tried each of the following 
 
 - Model 1: ssd_mobilenet_v1_coco.
   - http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2018_01_28.tar.gz
-  - I converted the model to an Intermediate Representation with the following arguments: "python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json".
+  - I converted the model to an Intermediate Representation with the following arguments: 
+  ``` python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_support.json```
   - The model was insufficient for the application because the precision is not correct, it does not continually detect people.
   - I tried to improve the model for the app by modifying the probability thresholds.
   
