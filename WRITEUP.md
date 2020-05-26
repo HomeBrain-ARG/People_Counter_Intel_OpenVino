@@ -29,7 +29,6 @@ After the conversion, IR will be made up of two files:
 The mechanics to perform a conversion is as follows:
 
 • Using Model Optimizer to generate IR files containing the custom layer.
-• Edit the CPU Extension Template Files.
 • Execute the model with the custom layer.
 
 In our project, pre-trained SSD TensorFlow models have been used, as we have observed, the more complex the chosen models have been, the more custom layers we have found.
@@ -42,6 +41,11 @@ python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo.py --input_model
 ```
 
 In this step keep in mind the different parameters depending on the type of pre-trained model, for instance: in this case, TF models need the parameter **--reverse_input_channels** because, as the parameter said, the channels are inverted with respect to OpenVino models.
+
+After this step I obtained the following files in the same directory where the original model is located:
+
+- frozen_inference_graph.bin
+- frozen_inference_graph.xml
 
 - **Send step - Execution:**
 
