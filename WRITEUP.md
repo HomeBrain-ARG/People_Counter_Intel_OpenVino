@@ -181,3 +181,13 @@ In investigating potential people counter models, I tried each of the following 
   ```
   - The converted model worked in efficient way (32ms of iference time per frame) with a good precision.
   - I tried differents probability thresholds from 0.3 to 0.8 with success. The recommended value is 0.3.
+
+- Model 4: pedestrian-detection-adas-0002: 
+    - https://docs.openvinotoolkit.org/latest/_models_intel_pedestrian_detection_adas_0002_description_pedestrian_detection_adas_0002.html.
+  - This model doesn't need conversion because is and Intel model:
+  - To execute it use the following command:
+  ```
+  python3 main.py -i Pedestrian_Detect_2_1_1.mp4 -m pedestrian-detection-adas-0002.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU --prob_threshold 0.3 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
+  ```
+  - The converted model was very efficient (25ms of iference time per frame) with a very good precision.
+  - I tried different probability thresholds from 0.3 to 0.9. Because the model is overtrained I don't recommend probability thresholds less than 0.7, otherwise the model detects false positives.
