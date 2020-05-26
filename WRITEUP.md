@@ -8,16 +8,19 @@ To develop the present project, tests were carried out with three pre-trained Te
 
 ## Explaining Custom Layers:
 
-In our project, pre-trained TensorFlow models have been used, as we have observed, the more complex the chosen models have been, the more custom layers we have found.
+Custom Layers conversion flow is as follows:
 
-OPenVino cuenta con la herramienta llamada "Model Optimizer" para realziar conversiones entre diferentes modelos pre-entrenados. 
 
-En general esta herramienta se encuentra en el path: ```/opt/intel/openvino/deployment_tools/model_optimizer```
 
-Model Optimizer produces an Intermediate Representation (IR) of the network, which can be read, loaded, and inferred with the Inference Engine. The Inference Engine API offers a unified API across a number of supported Intel® platforms. The Intermediate Representation is a pair of files describing the model:
+The tool used to perform the conversions of different pre-trained models of the TF, Caffe and ONNX type, among others to OPenVino is called "Model Optimizer".
 
-    .xml - Describes the network topology
-    .bin - Contains the weights and biases binary data.
+In general this tool, made up of several scripts, is found in the path: ```/opt/intel/openvino/deployment_tools/model_optimizer```.
+
+The "Model Optimizer" produces an "Intermediate Representation" or "IR" of the network, which can be read, loaded, and inferred with the "Inference Engine" as we see in the previous graphic. 
+
+After the conversion, IR will be made up of two files:
+* File with **.xml** extension: Describes the network topology.
+* File with **.bin** extension: Contains the weights and biases binary data.
 
 
 The steps to convert custom layers are the following one:
@@ -25,6 +28,8 @@ The steps to convert custom layers are the following one:
 • Using Model Optimizer to Generate IR Files Containing the Custom Layer.
 • Edit the CPU Extension Template Files.
 • Execute the Model with the Custom Layer.
+
+In our project, pre-trained SSD TensorFlow models have been used, as we have observed, the more complex the chosen models have been, the more custom layers we have found.
 
 
 ## Comparing Model Performance:
