@@ -138,19 +138,14 @@ python3 main.py -i CAM -m frozen_inference_graph.xml -l /opt/intel/openvino/depl
 ## Assess Effects on End User Needs:
 
 * In vision systems in industrial environments, the lighting issue is very complex. In general, it's sought to install light reflectors where video cameras are installed, this in order to avoid errors due to adverse environmental conditions.
-
 With reference to the accuracy of the models, I consider that to detect people, the examples within the OpenVino toolkit are sufficient, in industrial environments the existing models are generally scarce. This is why you have to think about training models from the beginning of a project and then use them with OpenVino.
-
 We must understand that the lower the illumination, the lower the model's accuracy will be.
 
-* La distancia focal es parte de las características intrínsecas de una cámara, para aplicaciones en donde las distancias varíen, es posible utilizar lentes motorizadas para corregir esta variable. De esta manera siempre se tendrá una adquisición de la imágen con buena presición.
-Hay que tener en cuenta que, en el caso de una Webcam, las distancias focales no pueden superar los 
+* The focal length is part of the intrinsic characteristics of a camera, for applications where the distances vary, it is possible to use motorized lenses to correct this variable. In this way you will always have an acquisition of the image with good precision.
+Keep in mind that, in the case of a Webcam, the focal lengths do not exceed tens of millimeters (for 1080p, in general, they are between 3mm and 12mm approx.), this means that they can capture images at about 7m to 20m.
 
-• Lighting and Focal Length of the camera depends on the system installed. A bad lighting can seriosly reduces the accuracy of the model.
-
-• One thing to notice is that, the camera's angle plays an important role that has affects on both the lighting as well as model accuracy.
-
-• The camera image size should be compatible with the model for proper detection. The model accuracy is calculated using the confusion matrix which gives the details about the occurance of false postivites and negatives which degrades the accuracy of the model.
+* The size of the image is another intrinsic condition of the construction of the cameras, we can say that the larger the image, the more elements in the frame can be covered, but with smaller objects. With a smaller image we should have a better focus.
+Apart from this, it is necessary to select the model according to the image size, otherwise we may have false positives or a decrease in accuracy when the model detects the elements.
 
 ## Model Research:
 
